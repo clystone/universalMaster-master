@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    var countdown=60;
+    function sendemail(){
+      var obj = $("#btn");
+      settime(obj);
+
+    }
+    function settime(obj) { //发送验证码倒计时
+      if (countdown == 0) {
+        obj.attr('disabled',false);
+        //obj.removeattr("disabled");
+        obj.val("免费获取验证码");
+        countdown = 60;
+        return;
+      } else {
+        obj.attr('disabled',true);
+        obj.val("重新发送(" + countdown + ")");
+        countdown--;
+      }
+      setTimeout(function() {
+          settime(obj) }
+        ,1000)
+    }
+
+
+    for (let i=2;i<10000;i++){
+      if(leijia(i)){
+        console.log(i);
+      }
+    }
+
+    function yinshu(num) {
+      var amount = 0;
+      for (var j = 1;j <= num;j++){
+        if (num % j == 0){
+          amount ++
+        }
+      }
+//      console.log(amount);
+      return amount
+    }
+
+    function leijia(i) {
+      if(yinshu(i)==2){
+//        console.log(i);
+        return true
+      }
+      else {
+        return false
+      }
+    }
+
+  </script>
+<body>
+<input type="button" id="btn" value="免费获取验证码" onclick="sendemail()" class="btn btn-primary" />
+
+</body>
+</html>

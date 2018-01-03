@@ -1,0 +1,27 @@
+<div class="bgColorMain pt10 overHid">
+  <div class="walletTopDiv">
+    必须填写银行卡/支付宝信息才能领取提现哦
+  </div>
+  <div class="topBox pt10">
+    <div class="fl ml50" ui-sref="card({bName:pocket.bName,brank:pocket.brank,brankNo:pocket.brankNo,masterId:masterId})">
+      <img src="images/card.png" alt="" class="topBoxPic">
+      <p class="colorEEE pt5 pb10">银行卡</p>
+    </div>
+    <div class="fr mr50" ui-sref="aliPay({aName:pocket.aName,aliPay:pocket.aliPay,masterId:masterId})">
+      <img src="images/aliPay.png" alt="" class="topBoxPic">
+      <p class="colorEEE pt5 pb10">支付宝</p>
+    </div>
+  </div>
+</div>
+<div class="pl10 bgColorWhite mt10 overHid pb10">
+  <p class="fl pt10">余额</p>
+  <p class="fr pt10 mr10">￥{{pocket.money / 100}}</p>
+</div>
+<div class="pl10 bgColorWhite mt10 overHid pb10">
+  <p class="fl pt10">已提现</p>
+  <p class="fr pt10 mr10">￥{{pocket.withdraw / 100}}</p>
+</div>
+<div class="pl10 bgColorWhite mt10 overHid pb10">
+  <p class="fl pt10">提现中</p>
+  <p class="fr pt10 mr10">￥{{pocket.frozen / 100}}</p>
+</div>

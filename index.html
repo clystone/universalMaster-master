@@ -1,0 +1,88 @@
+
+
+<div class="address bgColorMain">
+
+
+  <!--<p style="width: 100%;padding-left:10%;padding-right:10%;text-overflow: ellipsis;overflow: hidden; white-space: nowrap;">-->
+  <!--广州市萝岗区联合街道彩频路6号凡岛2号楼F0-->
+  <!--</p>-->
+  <div style="width: 100%;" class="por">
+    <img src="images/location.png" alt="" class="addressPic location">
+    <span class="locationTit fwBold" ng-click="test1()">服务地址：</span>
+    <input type="text" id='city-picker' disabled class="weui-input fwBold" style="width: 100%;padding-left: 120px; color: white;text-overflow: ellipsis;overflow: hidden; white-space: nowrap;" value="广东省 广州市" />
+    <img src="images/down.png" alt="" class="addressPic down" >
+  </div>
+  <div style="padding-top: 10px;" class="por">
+    <img src="images/tool1.png" alt="" class="addressPic location">
+    <span class="locationTit fwBold" ng-click="test1()">服务类型：</span>
+    <p type="text" id='trigger1' class="weui-input fwBold" style="width: 100%;padding-top: 2px;padding-left: 120px; color: white;text-overflow: ellipsis;overflow: hidden; white-space: nowrap;">{{skills[0]}}</p>
+    <img src="images/down.png" alt="" class="addressPic down" style="top: 10px;">
+  </div>
+</div>
+
+<!--<input type="text" id='picker'/>-->
+<div class="box mb52">
+  <div class="box-list mb10" ui-sref="orderDetail({args:{bookTime:need.time,orderId:need.orderId,addr:need.addr,province:need.province,city:need.city,district:need.district,createTime:need.createTime,headUrl:need.headUrl,remark:need.remark,skill:need.skill,urgent:need.urgent,nickname:need.nickname}})" ng-repeat="need in needs | orderBy: createTime:'desc'" >
+    <div class="pl10">
+      <div class="pt20">
+        <div class="fl">
+          <img  ng-src="{{need.headUrl}}" alt="" class="user">
+        </div>
+        <div class="fl pl20 pt5">
+          <p class="boldName">{{need.nickname}}</p>
+          <p class="fs12">{{need.time | date:'yyyy-MM-dd'}} {{need.time | date:'HH:ss'}}-{{need.time+3600000 | date:'HH:ss'}}</p>
+        </div>
+        <div class="fr mr10 pt5">
+          <span class="box-tag" ng-show="{{need.urgent}}">急</span>
+          <span class="box-tag">{{need.skill}}</span>
+        </div>
+      </div>
+      <div class="clearBoth pt10">
+        <!--<div class="talkDiv">-->
+          <!--&lt;!&ndash;<audio ng-src="https://www.jizui.top/images/orders/{{need.orderId}}/recode.webm"></audio>&ndash;&gt;-->
+          <!--<img src="images/talk.png" alt="" class="talkPic">-->
+          <!--<span class="talkTime">30's</span>-->
+        <!--</div>-->
+      </div>
+      <p class="pt10">{{need.remark}}</p>
+      <div class="pt10 pb20">
+        <img ng-src="https://shifu.jack-kwan.com/images/orders/{{need.orderId}}/0.jpg" alt="" class="boxPic" onerror="this.style.display = 'none'">
+        <img ng-src="https://shifu.jack-kwan.com/images/orders/{{need.orderId}}/1.jpg" alt="" class="boxPic" onerror="this.style.display = 'none'">
+        <img ng-src="https://shifu.jack-kwan.com/images/orders/{{need.orderId}}/2.jpg" alt="" class="boxPic" onerror="this.style.display = 'none'">
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="weui_tabbar" style="position: fixed;">
+  <a href="javascript:;" class="weui_tabbar_item weui_bar_item_on bgcTran">
+    <div class="weui_tabbar_icon">
+      <img src="./images/home-active.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">抢单大厅</p>
+  </a>
+  <a href="javascript:;" class="weui_tabbar_item bgcTran" ui-sref="firstOrder">
+    <div class="weui_tabbar_icon">
+      <img src="./images/order.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">订单</p>
+  </a>
+  <a href="javascript:;" class="weui_tabbar_item bgcTran" ui-sref="user">
+    <div class="weui_tabbar_icon">
+      <img src="./images/user.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">我</p>
+  </a>
+</div>
+
+<div ng-show="maxSize == 0" class="tac mt40">
+  <i class="weui-icon-info weui-icon_msg"></i>
+  <p class="mt10">暂无此状态订单!!!</p>
+</div>
+
+<div class="picMask" ng-show="robOrder">
+  <div class="tac" style="width: 120px; position: absolute;top: 50%; left: 50%; margin-left: -60px; background-color:#111;color: #fff; border-radius: 5px">
+    订单已被抢
+  </div>
+</div>
+

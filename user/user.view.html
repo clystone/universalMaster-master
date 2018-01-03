@@ -1,0 +1,51 @@
+<div class="userTop por">
+  <div class="userTopCon">
+    <img ng-src="{{master.headImgUrl}}" alt="" class="userTopPic">
+    <p class="fs16 fwBold colorWhite tac">{{master.nickname}}</p>
+  </div>
+</div>
+<div class="mt10 bgcWhite">
+  <div class="ml10 pt10 pb10 userBotBox" style="height: 50px;" ui-sref="wallet({masterId:master.id})">
+    <img src="images/wallet.png" alt="" class="userPic fl">
+    <span class="pl20 userBotDes pt5 fl">我的钱包</span>
+    <img src="images/gt.png" alt="" class="gtPic fr mr20 mt5">
+  </div>
+  <div class="ml10 pt10 pb10 userBotBox" style="height: 50px;" ui-sref="city">
+    <img src="images/city.png" alt="" class="userPic fl">
+    <span class="pl20 userBotDes pt5 fl">服务城市</span>
+    <img src="images/gt.png" alt="" class="gtPic fr mr20 mt5">
+  </div>
+  <div class="ml10 pt10 pb10 userBotBox" style="height: 50px;">
+    <img src="images/tel.png" alt="" class="userPic fl">
+    <span class="pl20 userBotDes pt5 fl">绑定手机号</span>
+    <img src="images/gt.png" alt="" class="gtPic fr mr20 mt5">
+    <span class="pt5 fr colorAAA mr10">{{master.phone}}</span>
+  </div>
+  <div class="ml10 pt10 pb10 userBotBox" style="height: 50px;" ui-sref="serviceData">
+    <img src="images/user-active.png" alt="" class="userPic fl">
+    <span class="pl20 userBotDes pt5 fl">服务资料</span>
+    <img src="images/gt.png" alt="" class="gtPic fr mr20 mt5">
+    <span class="pt5 fr colorAAA mr10">{{master.realName}}师傅</span>
+  </div>
+</div>
+<!--<p class="user-btn">退出登录</p>-->
+<div class="weui_tabbar" style="position: fixed;">
+  <a href="javascript:;" class="weui_tabbar_item bgcTran" ui-sref="index">
+    <div class="weui_tabbar_icon">
+      <img src="./images/home.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">抢单大厅</p>
+  </a>
+  <a href="javascript:;" class="weui_tabbar_item bgcTran" ui-sref="firstOrder">
+    <div class="weui_tabbar_icon">
+      <img src="./images/order.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">订单</p>
+  </a>
+  <a href="javascript:;" class="weui_tabbar_item bgcTran weui_bar_item_on" ui-sref="user">
+    <div class="weui_tabbar_icon">
+      <img src="./images/user-active.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">我</p>
+  </a>
+</div>

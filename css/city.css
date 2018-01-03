@@ -1,0 +1,39 @@
+.cityTop {
+    font-size: 20px;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0;
+    padding-left: 10px;
+    background-color: rgb(62, 163, 143);
+    color: white;
+}
+
+.w33 {
+    float: left;
+    width: 33.3%;
+}
+
+.w33 span {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 22%;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.cityBtn{
+    width: 100%;
+    background-color: rgb(62, 163, 143);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 20px;
+}
+
+.citySelect{
+    background-color: rgb(62, 163, 143);
+    color: white;
+}

@@ -1,0 +1,64 @@
+.userTop{
+    height: 200px;
+    background-color: rgb(62, 163, 143);
+}
+
+.userTopPic{
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+
+.userTopCon{
+    width: 80px;
+    height: 102px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -40px;
+    margin-top:-51px;
+}
+
+.userPic{
+    width: 30px;
+    height: 30px;
+}
+
+.gtPic{
+    width: 20px;
+    height: 20px;
+}
+
+.userBotBox{
+    border-bottom:1px solid #ccc;
+}
+
+.userBotBox:last-child{
+    border-bottom:0;
+}
+
+.userBotDes{
+    margin-top: 1px;
+}
+
+.weui_tabbar .bgcTran{
+    background-color:transparent;
+}
+
+.user-btn{
+    color: white;
+    font-weight:700;
+    margin-top:10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: rgb(62, 163, 143);
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    width: 90%;
+    margin-left:5%;
+}

@@ -1,0 +1,113 @@
+<div class="receiveHead bgColorMain pt20  pl20" style="height: 100px;">
+  <div style="background-color:#fff;width: 60px;height: 60px;border-radius: 50%;" class="fl">
+    <img src="images/good.png" alt="" class="receiveHeadPic"
+         style="margin-left: 15px;margin-top: 15px;width: 30px;height: 30px;">
+  </div>
+  <div class="fl pl20">
+    <p class="pt10 colorWhite fwBold">服务完成！</p>
+    <p class="pt5 fs12 colorWhite">等待客户付款</p>
+  </div>
+  <div class="fr mr20 mt10">
+    <img src="images/triangle.png" alt="" style="width: 30px;height: 30px;">
+  </div>
+</div>
+<div class="pl10 bgcWhite pb10">
+  <div class="detailTop pt20 ">
+    <img ng-src="{{order.user.headImgUrl}}" alt="" class="detailHeadImg fl">
+    <div class="fl pl10">
+      <p class="pt5 fwBold">{{order.name}}</p>
+      <p class="fs12 colorAAA">{{order.bookTime | date:'yyyy-MM-dd'}} {{order.bookTime | date:'HH:ss'}}-{{order.bookTime+3600000 | date:'HH:ss'}}</p>
+    </div>
+    <!--<img src="images/phone.png" alt="" class="receivePhone fr mr20 mt5">-->
+    <p class="fr mr10  mt15"><a ng-href="tel: {{order.phone}} ">{{order.phone}}</a></p>
+    <p class="clearBoth pt5">
+      <img src="images/location-gray.png" alt="" class="detailLocation">
+    <p class="pl25 pr20">{{order.province}}{{order.city}}{{order.district}}{{order.addr}}</p>
+    </p>
+  </div>
+</div>
+<div class="pl10 mt10 bgcWhite pt10 pb20 por">
+  <div class='complainBox'>
+    <a href="tel:4006003388">
+      <img class='complainPic' src='images/complain.png' alt="">
+      <span class='complainText'>我要投诉</span>
+    </a>
+  </div>
+  <p class="pt10">服务类型 <span class="pl20 colorAAA">{{order.skill}}</span></p>
+  <p class="pt10">预约时间 <span class="pl20 colorAAA">{{order.bookTime | date:'yyyy-MM-dd'}} {{order.bookTime | date:'HH:ss'}}-{{order.bookTime+3600000 | date:'HH:ss'}}</span><span class="detail-box-tag" ng-show="order.urgent">急</span></p>
+  <div class="pt10" style="height: 35px;">
+    <span class="detailDes">文字描述</span>
+    <p class="colorAAA" style="width:90%;padding-left:80px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">
+      <span>{{order.remark}}</span>
+      <span ng-show="!order.remark">无文字描述</span>
+    </p>
+  </div>
+  <div class="pt10">
+    <span class="detailDes">语音描述</span>
+    <p class="detailTalkDiv" style="background-color:transparent;">
+      <audio id="audio1"  ng-src="{{sceControl(formData.mediaUrl)}}" onerror="nofind()" style="width: 100px;height: 40px;position: absolute;" controls="controls">您的手机无法播放该语音</audio>
+      <span id="noAudio" class="colorAAA" style="display: none;padding-top: 5px;">无语音</span>
+      <!--<img src="images/talk.png" alt="" class="detailTalkPic">-->
+      <!--<span class="detailTalkTime">30's</span>-->
+    </p>
+  </div>
+  <div class="pt10">
+    <span class="detailDes">相关图片</span>
+    <div class="detailPicBox">
+      <span  class="colorAAA" style="display: none" id="noPic">无图片</span>
+      <img id="pic1" ng-src="https://shifu.jack-kwan.com/images/orders/{{order.id}}/0.jpg" alt="" class="detailRelPic" onerror="noPic1()" ng-click="showBig()">
+      <img ng-src="https://shifu.jack-kwan.com/images/orders/{{order.id}}/1.jpg" alt="" class="detailRelPic" onerror="this.style.display = 'none'" ng-click="showBig1()">
+      <img ng-src="https://shifu.jack-kwan.com/images/orders/{{order.id}}/2.jpg" alt="" class="detailRelPic" onerror="this.style.display = 'none'" ng-click="showBig2()">
+    </div>
+  </div>
+</div>
+<div class="pl10 mt10 bgcWhite">
+  <p class="colorAAA pt10">价格明细</p>
+  <!--<div class="detailTop pt10 " style="height: 60px;">-->
+    <!--<img src="images/complain2.png" alt="" class="detailHeadImg fl">-->
+    <!--<div class="fl pl10">-->
+      <!--<p class="pt15 fwBold">投诉</p>-->
+    <!--</div>-->
+    <!--<p class="fr pt15 mr20"><a href="tel:4006003388">400-600-3388</a></p>-->
+  <!--</div>-->
+  <div class="detailTop pt10 " style="height: 60px;">
+    <img src="images/toHome.png" alt="" class="detailHeadImg fl">
+    <div class="fl pl10">
+      <p class="pt5 fwBold">上门费</p>
+      <p class="fs12 colorAAA">中国家用服务维修协会规定</p>
+    </div>
+    <p class="fr pt10 mr20 fs20">15元</p>
+  </div>
+  <div class="detailTop pt10 clearBoth" style="height: 60px;">
+    <img src="images/clock.png" alt="" class="detailHeadImg fl">
+    <div class="fl pl10">
+      <p class="pt15 fwBold">加急费</p>
+    </div>
+    <p class="fr pt10 mr20 fs20">{{order.urgent / 100}}元</p>
+  </div>
+  <div class="detailTop pt10 clearBoth" style="height: 60px;">
+    <img src="images/tool.png" alt="" class="detailHeadImg fl">
+    <div class="fl pl10">
+      <p class="pt15 fwBold">产品维修费</p>
+    </div>
+    <p class="fr pt10 mr20 fs20">{{order.price / 100}}元</p>
+  </div>
+  <div class="clearBoth receiveTotal pl10" style="height: 50px;margin-bottom: 10px;">
+    <p class="fr mr20"><span class="fs12">总计</span> <span class="colorMain fs20">{{order.price / 100 + order.urgent / 100 + 15}}</span>元</p>
+  </div>
+</div>
+<div>
+  <p class="pt15">
+    <button class="btn detail-btn bgColorMain" ui-sref="secondOrder">返回</button>
+  </p>
+</div>
+
+<div class="picMask" ng-show="bigPic">
+  <img ng-src="https://shifu.jack-kwan.com/images/orders/{{order.id}}/0.jpg" alt="" class="bigPic" ng-click="hideBig()">
+</div>
+<div class="picMask" ng-show="bigPic1">
+  <img ng-src="https://shifu.jack-kwan.com/images/orders/{{order.id}}/1.jpg" alt="" class="bigPic" ng-click="hideBig1()">
+</div>
+<div class="picMask" ng-show="bigPic2">
+  <img ng-src="https://shifu.jack-kwan.com/images/orders/{{order.id}}/2.jpg" alt="" class="bigPic" ng-click="hideBig2()">
+</div>

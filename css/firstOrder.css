@@ -1,0 +1,57 @@
+.firstOrderTop div{
+    width: 25%;
+    color: #aaa;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background-color: rgb(62, 163, 143);
+    border-bottom: 2px solid rgb(62, 163, 143);
+}
+
+.firstOrderTop .button-on{
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+.weui_tabbar .bgcTran{
+    background-color:transparent;
+}
+
+.firstOrderPic{
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.firstOrderPriceDes{
+    position: absolute;
+}
+.firstOrderPrice{
+    padding-left:76px;
+}
+
+.firstOrder-btn{
+    color: rgb(62, 163, 143);
+    float: right;
+    margin-right: 20px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgb(62, 163, 143);
+}
+
+.firstOrderBox:first-child{
+    margin-top: 0;
+}
+
+.firstOrderBox:last-child{
+    margin-bottom: 63px;
+}
+
+.firstOrderBox{
+    margin-top: 10px;
+}
+
+
+
