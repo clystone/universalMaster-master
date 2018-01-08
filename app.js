@@ -2,7 +2,8 @@
 
 (function () {
   'use strict';
-  // const url = 'http://192.168.2.102:8080';
+  //todo://摆上服务器修改请求的地址
+  // const url = 'http://192.168.2.103:8080';
   const url = 'https://shifu.jack-kwan.com';
   var myApp = angular.module("myApp", ['ui.router']);
   myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -117,6 +118,11 @@
         url: "/city",
         templateUrl: "city/city.view.html",
         controller: 'cityCtr'
+      })
+      .state("messagePush", {
+        url: "/messagePush",
+        templateUrl: "messagePush/messagePush.view.html",
+        controller: 'messagePushCtr'
       })
   });
 
@@ -1498,6 +1504,35 @@
 
   }]);
 
+  myApp.controller('messagePushCtr', ['$scope', '$stateParams', '$http', '$state', 'locals', '$timeout', function ($scope, $stateParams, $http, $state, locals, $timeout) {
+    document.body.style.backgroundColor = '#eee';
+    let userToken = locals.get("userToken");
+
+    $http.get(url + '/api/master/findpush', {headers: {"TOKEN": userToken}})
+      .then(res => {
+        console.log(res.data);
+        // var isOff = res.data.parms.masterMatch.off || 1;
+        console.log(res.data.parms.masterMatch.off);
+        if(res.data.parms.masterMatch.off === null || res.data.parms.masterMatch.off){
+          console.log(111);
+          $("#pushInput")[0].checked = true
+
+        }
+        else{
+          $("#pushInput")[0].checked = false;
+          console.log(222)
+        }
+      });
+
+    $("#pushInput").change(function(){
+      console.log($(".weui-switch").is(":checked"));
+      $http.post(url + '/api/master/udpasson/'+ $("#pushInput")[0].checked,{}, {headers: {"TOKEN": userToken}})
+        .then(res => {
+          console.log(res.data);
+        })
+    });
+
+  }]);
 
   myApp.factory('locals', ['$window', function ($window) {
     return {        //存储单个属性
@@ -1559,4 +1594,5 @@ function noPic1() {
 // function noVideo() {
 //   console.log('noVedio');
 // }
+
 
