@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   //todo://摆上服务器修改请求的地址
-  // const url = 'http://192.168.2.103:8080';
+  // const url = 'http://192.168.2.112:8080';
   const url = 'https://shifu.jack-kwan.com';
   var myApp = angular.module("myApp", ['ui.router']);
   myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -208,7 +208,6 @@
     locals.set("orderId", id);
     if (token){
       // $window.location.href = "http://localhost:8083/universalMaster/app.html#/index";
-      // $state.go("index");
       //todo:摆上服务器改
       $window.location.href = "http://shifu.jack-kwan.com/universalMaster/app.html#/index"
     }
@@ -271,25 +270,6 @@
           }
         });
     }
-
-    $http.get(url + '/api/master/findMyMyCity', {headers: {"TOKEN": userToken}})
-      .then(res => {
-        // var time = res.config.responseTimestamp - res.config.requestTimestamp;
-        // console.log('The request took ' + (time / 1000) + ' seconds.');
-        console.log(res.data);
-        $scope.currentCity = res.data.parms.city.city;
-        if ($scope.currentCity == '广州市'){
-          $("#city-picker").val("广东省 广州市");
-        }
-        else if ($scope.currentCity == '武汉市'){
-          $("#city-picker").val("湖北省 武汉市");
-        }
-        else if ($scope.currentCity == '合肥市'){
-          $("#city-picker").val("安徽省 合肥市");
-        }
-
-      });
-
 
     // $http.get(url + '/api/pc/getJS')
     //   .then(function (res) {
@@ -367,7 +347,7 @@
         console.log( $scope.skills);
         var mobileSelect = new MobileSelect({
           trigger: '#trigger1',
-          title: '选择年份',
+          title: '选择服务类型',
           wheels: [
             {data:$scope.skills}
           ],
@@ -387,16 +367,36 @@
         });
       })
       .then(res=>{
-        $http.get(url + '/api/order/findneedcity/' + $scope.skills[0] + '/' + $scope.currentCity + '?page=1&size=10', {headers: {"TOKEN": userToken}})
-          .then(function (res) {
+        $http.get(url + '/api/master/findMyMyCity', {headers: {"TOKEN": userToken}})
+          .then(res => {
+            // var time = res.config.responseTimestamp - res.config.requestTimestamp;
+            // console.log('The request took ' + (time / 1000) + ' seconds.');
             console.log(res.data);
-            $scope.needs = res.data.parms.needs;
-            $scope.maxSize = res.data.parms.maxSize;
-          })
-          .catch(err => {
-            // alert('请求失败');
-            console.log(err);
-          });
+            $scope.currentCity = res.data.parms.city.city;
+            if ($scope.currentCity == '广州市'){
+              $("#city-picker").val("广东省 广州市");
+            }
+            else if ($scope.currentCity == '武汉市'){
+              $("#city-picker").val("湖北省 武汉市");
+            }
+            else if ($scope.currentCity == '合肥市'){
+              $("#city-picker").val("安徽省 合肥市");
+            }
+            // $scope.currentCity = '湛江市';
+
+          }).then(res => {
+          $http.get(url + '/api/order/findneedcity/' + $scope.skills[0] + '/' + $scope.currentCity + '?page=1&size=10', {headers: {"TOKEN": userToken}})
+            .then(function (res) {
+              console.log(res.data);
+              $scope.needs = res.data.parms.needs;
+              $scope.maxSize = res.data.parms.maxSize;
+            })
+            .catch(err => {
+              // alert('请求失败');
+              console.log(err);
+            });
+        });
+
       });
 
 
@@ -1558,11 +1558,16 @@
     }
   }]);
 
-  myApp.factory('timestampMarker', ['$log','$window',function($log,$window) {
+  myApp.factory('timestampMarker', ['$log','$window','locals',function($log,$window,locals) {
     $log.debug('$log is here to show you that this is a regular factory with injection');
     return {
       request: function(config) {
         config.requestTimestamp = new Date().getTime();
+        let token = locals.get("token");
+        if (!token) {
+          $window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect";
+          console.log('token null');
+        }
         return config;
       },
       response: function(response) {

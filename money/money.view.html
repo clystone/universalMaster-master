@@ -5,7 +5,7 @@
       <p class="pt5 fwBold">{{order.name}}</p>
       <p class="fs12 colorAAA">{{order.bookTime | date:'yyyy-MM-dd'}} {{order.bookTime | date:'HH:ss'}}-{{order.bookTime+3600000 | date:'HH:ss'}}</p>
     </div>
-    <img src="images/toggle.png" alt="" class="receivePhone fr mr20 mt5">
+    <!--<img src="images/toggle.png" alt="" class="receivePhone fr mr20 mt5">-->
     <div class="clearBoth">
       <p class=" pt5">
         <img src="images/location-gray.png" alt="" class="detailLocation">
@@ -14,8 +14,13 @@
     </div>
   </div>
 </div>
-<div class="pl10 bgcWhite mt10 por" style="height: 95px;">
-  <p class="fs12 colorAAA pt10" >填写产品维修费价格</p>
+<!--<div class="pl10 bgcWhite mt10 por" style="height: 95px;border-top: 5px solid rgb(0, 135, 254);">-->
+  <!--<p class="fs12 colorAAA pt10" >请填写材料费价格</p>-->
+  <!--<p class="fs36 por"><span class="moneyPrefix">￥</span><input autofocus class="colorAAA form-control moneyInput"  ng-model="material" placeholder="100.0" type="number" /></p>-->
+  <!--<img src="images/gear.png" alt="" class="moneyPic">-->
+<!--</div>-->
+<div class="pl10 bgcWhite mt10 por" style="height: 95px;border-top: 5px solid rgb(230,190,110);">
+  <p class="fs12 colorAAA pt10" >请填写维修费价格</p>
   <p class="fs36 por"><span class="moneyPrefix">￥</span><input class="colorAAA form-control moneyInput" ng-model="price" placeholder="100.0" type="number" /></p>
   <img src="images/tool.png" alt="" class="moneyPic">
 </div>
