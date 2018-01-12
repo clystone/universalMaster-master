@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   //todo://摆上服务器修改请求的地址
-  // const url = 'http://192.168.2.112:8080';
+  // const url = 'http://192.168.2.109:8080';
   const url = 'https://shifu.jack-kwan.com';
   var myApp = angular.module("myApp", ['ui.router']);
   myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -206,13 +206,26 @@
     locals.set("userToken", token);
     locals.set("userState", state);
     locals.set("orderId", id);
-    if (token){
-      // $window.location.href = "http://localhost:8083/universalMaster/app.html#/index";
-      //todo:摆上服务器改
-      $window.location.href = "http://shifu.jack-kwan.com/universalMaster/app.html#/index"
+    if (state == 0) {
+      $state.go("register");
     }
-    else{
-      $.alert({text: '系统异常'});
+    else if (state == 1) {
+      $state.go("submitData");
+    }
+    else if (state == 2) {
+      $state.go("audit");
+    }
+    else if(state == 4){
+      $state.go("freeze")
+    }
+    else if (state == 3 && token){
+      // window.location.href = "http://localhost:8083/universalMaster/app.html#/index";
+      //todo:摆上服务器改
+      window.location.href = "http://shifu.jack-kwan.com/universalMaster/app.html#/index"
+    }
+    else if(!token){
+      // $.alert({text: '系统异常'});
+      window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect"
     }
 
 
@@ -230,7 +243,7 @@
     document.body.style.backgroundColor = '#eeeeee';
     $scope.skill = '家电维修';
     // $scope.city = '广州市';
-    let userState = locals.get("userState");
+    // let userState = locals.get("userState");
     let userToken = locals.get("userToken");
     let id = locals.get("orderId");
 
@@ -269,72 +282,6 @@
             })
           }
         });
-    }
-
-    // $http.get(url + '/api/pc/getJS')
-    //   .then(function (res) {
-    //     console.log(res.data);
-    //     let appdId = res.data.parms.appId;
-    //     let noncestr = res.data.parms.noncestr;
-    //     let signature = res.data.parms.signature;
-    //     let timestamp = res.data.parms.timestamp;
-    //     wx.config({
-    //       debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-    //       appId: appdId, // 必填，企业号的唯一标识，此处填写企业号corpid
-    //       timestamp: timestamp, // 必填，生成签名的时间戳
-    //       nonceStr: noncestr, // 必填，生成签名的随机串
-    //       signature: signature,// 必填，签名，见附录1
-    //       jsApiList: ['getLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-    //     });
-    //     wx.error(function (res) {
-    //       console.log(res);
-    //     });
-    //     wx.getLocation({
-    //       type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
-    //       success: function (res) {
-    //         var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-    //         var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-    //         $scope.latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-    //         $scope.longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-    //         var speed = res.speed; // 速度，以米/每秒计
-    //         var accuracy = res.accuracy; // 位置精度
-    //         // $http.post(url + '/api/master/udlocation',{
-    //         //   latitude:latitude,
-    //         //   longitude:longitude
-    //         // },{headers: {"TOKEN": userToken}})
-    //         //   .then(res=>{
-    //         //     console.log(res.data);
-    //         //   })
-    //         // console.log(latitude);
-    //         // console.log(longitude);
-    //         // console.log(111);
-    //       }
-    //     });
-    //   })
-    //   .catch(err => {
-    //     // alert('请求失败');
-    //     console.log(err);
-    //   });
-
-    // $http.post(url + '/api/master/udlocation',{
-    //   latitude: 23.16158,
-    //   longitude: 113.43303
-    // },{headers: {"TOKEN": userToken}})
-    //   .then(res=>{
-    //     console.log(res.data);
-    //   })
-
-    if (userState == 0) {
-      $state.go("register");
-    }
-    else if (userState == 1) {
-      $state.go("submitData");
-    }
-    else if (userState == 2) {
-      $state.go("audit");
-    }
-    else if(userState == 4){
-      $state.go("freeze")
     }
 
     $http.get(url + '/api/skill/findAll/1001')
@@ -519,7 +466,7 @@
         $http.get(url + '/api/sms/send/master/' + $scope.phone)
           .then(function (res) {
             console.log(res.data);
-            if (res.data.info == 0) {
+            if (res.data.info == 14) {
               $.alert({text: '手机已被注册'});
             }
             else if (res.data.info == 1) {
@@ -1563,11 +1510,11 @@
     return {
       request: function(config) {
         config.requestTimestamp = new Date().getTime();
-        let token = locals.get("token");
-        if (!token) {
-          $window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect";
-          console.log('token null');
-        }
+        // let token = locals.get("userToken");
+        // if (!token) {
+        //   $window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect";
+        //   console.log('token null');
+        // }
         return config;
       },
       response: function(response) {
