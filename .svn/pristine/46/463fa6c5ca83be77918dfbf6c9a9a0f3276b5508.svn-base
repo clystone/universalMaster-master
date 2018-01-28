@@ -1,0 +1,37 @@
+<div class="cityTop">
+  <p>请选择服务城市：</p>
+  <p class="fs16 pt10">当前选择的城市：
+    <span ng-show="currentCity">{{currentCity}}</span>
+    <span ng-show="!currentCity">暂未选择</span>
+  </p>
+</div>
+<div style="overflow: hidden" >
+  <div class="w33" ng-repeat="i in city">
+    <span ng-click="showCity(i,$event)"  ng-class="{citySelect:i.city == select}">{{i.city}}</span>
+  </div>
+</div>
+<button class="btn cityBtn" ng-click="ensureCity()">确定</button>
+
+<div class="weui_dialog_alert" style="display: none;">
+  <div class="weui_mask"></div>
+  <div class="weui_dialog">
+    <div class="weui_dialog_hd"><strong class="weui_dialog_title">警告</strong>
+    </div>
+    <div class="weui_dialog_bd">弹窗内容，告知当前页面信息等</div>
+    <div class="weui_dialog_ft">
+      <a href="javascript:;" class="weui_btn_dialog colorWhite">确定</a>
+    </div>
+  </div>
+</div>
+
+<div class="picMask" ng-show="chooseCity">
+  <div class="tac" style="width: 120px; position: absolute;top: 50%; left: 50%; margin-left: -60px; background-color:#111;color: #fff; border-radius: 5px">
+    选择成功
+  </div>
+</div>
+
+<div class="picMask" ng-show="chooseFalse">
+  <div class="tac" style="width: 120px; position: absolute;top: 50%; left: 50%; margin-left: -60px; background-color:#111;color: #fff; border-radius: 5px">
+    选择失败
+  </div>
+</div>

@@ -3,8 +3,8 @@
 (function () {
   'use strict';
   //todo://摆上服务器修改请求的地址
-  // const url = 'http://192.168.2.109:8080';
-  const url = 'https://shifu.jack-kwan.com';
+  const url = 'http://192.168.2.117:8080';
+  // const url = 'https://shifu.jack-kwan.com';
   var myApp = angular.module("myApp", ['ui.router']);
   myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
@@ -124,6 +124,11 @@
         templateUrl: "messagePush/messagePush.view.html",
         controller: 'messagePushCtr'
       })
+      .state("productList", {
+        url: "/productList",
+        templateUrl: "productList/productList.view.html",
+        controller: 'productListCtr'
+      })
   });
 
   myApp.controller('appCtr', ['$scope', 'locals', '$state', '$http', '$timeout', function ($scope, locals, $state, $http, $timeout) {
@@ -219,13 +224,13 @@
       $state.go("freeze")
     }
     else if (state == 3 && token){
-      // window.location.href = "http://localhost:8083/universalMaster/app.html#/index";
+      window.location.href = "http://localhost:8083/universalMaster/app.html#/index";
       //todo:摆上服务器改
-      window.location.href = "http://shifu.jack-kwan.com/universalMaster/app.html#/index"
+      // window.location.href = "http://shifu.jack-kwan.com/universalMaster/app.html#/index"
     }
     else if(!token){
-      // $.alert({text: '系统异常'});
-      window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect"
+      //todo:摆上服务器改
+      // window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect"
     }
 
 
@@ -314,6 +319,7 @@
         });
       })
       .then(res=>{
+        //todo://测试城市改为湛江市
         $http.get(url + '/api/master/findMyMyCity', {headers: {"TOKEN": userToken}})
           .then(res => {
             // var time = res.config.responseTimestamp - res.config.requestTimestamp;
@@ -1153,17 +1159,21 @@
     let params = $stateParams;
     let userToken1 = locals.get("userToken");
     let orderId = params.orderId;
-    $.weui = {};
-    $.weui.alert = function (options) {
-      options = $.extend({title: '警告', text: '警告内容'}, options);
-      var $alert = $('.weui_dialog_alert');
-      $alert.find('.weui_dialog_title').text(options.title);
-      $alert.find('.weui_dialog_bd').text(options.text);
-      $alert.on('touchend click', '.weui_btn_dialog', function () {
-        $alert.hide();
-      });
-      $alert.show();
-    };
+    // $scope.material = 0;
+    // $scope.price = 0;
+
+
+    // $.weui = {};
+    // $.weui.alert = function (options) {
+    //   options = $.extend({title: '警告', text: '警告内容'}, options);
+    //   var $alert = $('.weui_dialog_alert');
+    //   $alert.find('.weui_dialog_title').text(options.title);
+    //   $alert.find('.weui_dialog_bd').text(options.text);
+    //   $alert.on('touchend click', '.weui_btn_dialog', function () {
+    //     $alert.hide();
+    //   });
+    //   $alert.show();
+    // };
 
     console.log(params);
     $http.get(url + '/api/order/findmaster/' + orderId, {headers: {"TOKEN": userToken1}})
@@ -1212,15 +1222,34 @@
         console.log($scope.price);
       }
       else {
-        $http.post(url + '/api/order/price/' + orderId + '/' + $scope.price * 100, {}, {headers: {"TOKEN": userToken}})
-          .then(res => {
-            if (res.data.info == 1) {
-              console.log(res.data);
-              $state.go("secondOrder")
-            }
-
-          });
-        console.log($scope.price);
+        if($scope.material == undefined){
+          console.log( $scope.material);
+          $http.post(url + '/api/order/price2/' + orderId + '?price='+$scope.price * 100 + '&product=0', {}, {headers: {"TOKEN": userToken}})
+            .then(res => {
+              if (res.data.info == 1) {
+                console.log(res.data);
+                $state.go("secondOrder")
+              }
+            });
+        }
+        else{
+          console.log( $scope.material);
+          $http.post(url + '/api/order/price2/' + orderId + '?price='+$scope.price * 100 + '&product=' + $scope.material * 100, {}, {headers: {"TOKEN": userToken}})
+            .then(res => {
+              if (res.data.info == 1) {
+                console.log(res.data);
+                $state.go("secondOrder")
+              }
+            });
+        }
+        // $http.post(url + '/api/order/price/' + orderId + '/' + $scope.price * 100, {}, {headers: {"TOKEN": userToken}})
+        //   .then(res => {
+        //     if (res.data.info == 1) {
+        //       console.log(res.data);
+        //       $state.go("secondOrder")
+        //     }
+        //
+        //   });
       }
     }
 
@@ -1481,6 +1510,18 @@
 
   }]);
 
+  myApp.controller('productListCtr', ['$scope', 'locals', '$state', '$http', function ($scope, locals, $state, $http) {
+    document.body.style.backgroundColor = '#eeeeee';
+    let userToken = locals.get("userToken");
+    $http.get(url + '/api/orderProduct/findAllmaster?page=1&size=10', {headers: {"TOKEN": userToken}})
+      .then(res => {
+        console.log(res.data);
+        $scope.maxSize = res.data.parms.maxSize;
+        $scope.orderProducts = res.data.parms.orderProducts;
+        console.log($scope.maxSize)
+      })
+  }]);
+
   myApp.factory('locals', ['$window', function ($window) {
     return {        //存储单个属性
       set: function (key, value) {
@@ -1510,18 +1551,18 @@
     return {
       request: function(config) {
         config.requestTimestamp = new Date().getTime();
-        // let token = locals.get("userToken");
-        // if (!token) {
-        //   $window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect";
-        //   console.log('token null');
-        // }
+        //// let token = locals.get("userToken");
+        //// if (!token) {
+        ////   $window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect";
+        ////   console.log('token null');
+        //// }
         return config;
       },
       response: function(response) {
         response.config.responseTimestamp = new Date().getTime();
         if(response.data.info == 18){
           console.log(111);
-          $window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect";
+          // $window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb969b27be3b86b16&redirect_uri=http%3a%2f%2fshifu.jack-kwan.com%2fapi%2fpc%2frelate&response_type=code&scope=snsapi_userinfo&state=0#wechat_redirect";
         }
         return response;
       }

@@ -1,0 +1,63 @@
+<div>
+  <div class="cardBox pl10 pt15 pb15 overHid">
+    <span class="fl">姓名</span>
+    <span class="fr mr20 colorAAA">{{msg.bName}}</span>
+  </div>
+  <div class="cardBox pl10 pt15 pb15 overHid">
+    <span class="fl">开户银行</span>
+    <span class="fr mr20 colorAAA">{{msg.brank}}</span>
+  </div>
+  <div class="cardBox pl10 pt15 pb15 overHid">
+    <span class="fl">卡号</span>
+    <!--<span class="fr mr20 colorAAA">6217 **** **** **** 919</span>-->
+    <span class="fr mr20 colorAAA">{{brankNo}}</span>
+  </div>
+</div>
+<div class="picMask" ng-show="showDIv">
+  <div class="bankDiv">
+    <div class="mt15">
+      <div class="por ">
+        <span class="poa l10 lh34">姓名</span>
+        <input type="text" class="form-control ml80 w200" ng-model="nameInput">
+      </div>
+    </div>
+    <div class="mt15">
+      <div class="por ">
+        <span class="poa l10 lh34">开户银行</span>
+        <input type="text" class="form-control ml80 w200" ng-model="bankInput">
+      </div>
+    </div>
+    <div class="mt15">
+      <div class="por ">
+        <span class="poa l10 lh34">卡号</span>
+        <input type="text" class="form-control ml80 w200" id="bankInt" ng-model="cardInput">
+      </div>
+    </div>
+    <div class="mt5">
+      <div class="por ">
+        <span class="poa l10 lh34" style="color:cornflowerblue" ng-click="hideDiv()">&lt;&lt;返回</span>
+      </div>
+    </div>
+    <div class="mt15">
+      <button class="bankBtn" ng-click="submitBank()">提交资料</button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button class=" bgColorMain colorWhite bottomBtn"  ng-click="showNew()" ng-show="!brankNo">新增银行卡信息</button>
+  <button class=" bgColorMain colorWhite bottomBtn"  ng-click="showNew()" ng-show="brankNo">修改银行卡信息</button>
+</div>
+
+<div class="weui_dialog_alert" style="display: none;">
+  <div class="weui_mask"></div>
+  <div class="weui_dialog">
+    <div class="weui_dialog_hd"> <strong class="weui_dialog_title">警告</strong>
+    </div>
+    <div class="weui_dialog_bd">弹窗内容，告知当前页面信息等</div>
+    <div class="weui_dialog_ft">
+      <a href="javascript:;" class="weui_btn_dialog colorWhite">确定</a>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/weui/0.4.3/style/weui.min.css">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/serviceData.css">
+  <title>服务资料</title>
+</head>
+<body>
+<div class="pl10 bgcWhite mt10">
+  <div class="pt10 serviceDataTop">
+    <span>真实姓名</span>
+    <span class="fr mr20 colorAAA">黄大佬</span>
+  </div>
+  <div class="pt10 pb10">
+    <span>服务类目</span>
+    <span class="fr mr20 colorAAA">家电维修</span>
+  </div>
+</div>
+<div class="pl10 bgColorWhite mt10">
+  <p class="pt10">身份证照片</p>
+  <div class="pt10 pb10">
+    <img src="../images/pic_160.png" alt="" class="serviceDataPic">
+    <img src="../images/pic_160.png" alt="" class="serviceDataPic">
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/weui/0.4.3/style/weui.min.css">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/wallet.css">
+  <title>钱包</title>
+</head>
+<body>
+<div class="bgColorMain pt10 overHid">
+  <div class="walletTopDiv">
+    必须填写银行卡/支付宝信息才能领取提现哦
+  </div>
+  <div class="topBox pt10">
+    <div class="fl ml50">
+      <img src="../images/card.png" alt="" class="topBoxPic">
+      <p class="colorEEE pt5 pb10">银行卡</p>
+    </div>
+    <div class="fr mr50">
+      <img src="../images/aliPay.png" alt="" class="topBoxPic">
+      <p class="colorEEE pt5 pb10">支付宝</p>
+    </div>
+  </div>
+</div>
+<div class="pl10 bgColorWhite mt10 overHid pb10">
+  <p class="fl pt10">钱包</p>
+  <img src="../images/gt.png" alt="" class="walletGt fr mr20">
+  <p class="fr pt10 mr10">￥5102.0</p>
+</div>
+<div class="pl10 bgColorWhite mt10 overHid pb10">
+  <p class="fl pt10">已提现</p>
+  <img src="../images/gt.png" alt="" class="walletGt fr mr20">
+  <p class="fr pt10 mr10">1￥510.0</p>
+</div>
+<div class="pl10 bgColorWhite mt10 overHid pb10">
+  <p class="fl pt10">提现中</p>
+  <img src="../images/gt.png" alt="" class="walletGt fr mr20">
+  <p class="fr pt10 mr10">￥502.0</p>
+</div>
+<!--<div class="mt10 bgcWhite">-->
+  <!--<div class="pl10 overHid walletList">-->
+    <!--<div class=" fl mt10 mb10">-->
+      <!--<img src="../images/withdraw.png" alt="" class="walletListPic">-->
+    <!--</div>-->
+    <!--<div class="fl pl10 pt10">-->
+      <!--<p>提现</p>-->
+      <!--<p class="fs12">2017-09-09 09:30</p>-->
+    <!--</div>-->
+    <!--<div class="fr">-->
+      <!--<p class="fs20 mr20 pt15">-5102.0</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="pl10 overHid walletList">-->
+    <!--<div class=" fl mt10 mb10">-->
+      <!--<img src="../images/user.jpg" alt="" class="walletListPic">-->
+    <!--</div>-->
+    <!--<div class="fl pl10 pt10">-->
+      <!--<p>掰了个呆门</p>-->
+      <!--<p class="fs12">2017-09-09 09:30</p>-->
+    <!--</div>-->
+    <!--<div class="fr">-->
+      <!--<p class="fs20 mr20 pt15">+135.0</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="pl10 overHid walletList">-->
+    <!--<div class=" fl mt10 mb10">-->
+      <!--<img src="../images/user.jpg" alt="" class="walletListPic">-->
+    <!--</div>-->
+    <!--<div class="fl pl10 pt10">-->
+      <!--<p>掰了个呆门</p>-->
+      <!--<p class="fs12">2017-09-09 09:30</p>-->
+    <!--</div>-->
+    <!--<div class="fr">-->
+      <!--<p class="fs20 mr20 pt15">+135.0</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="pl10 overHid walletList">-->
+    <!--<div class=" fl mt10 mb10">-->
+      <!--<img src="../images/user.jpg" alt="" class="walletListPic">-->
+    <!--</div>-->
+    <!--<div class="fl pl10 pt10">-->
+      <!--<p>掰了个呆门</p>-->
+      <!--<p class="fs12">2017-09-09 09:30</p>-->
+    <!--</div>-->
+    <!--<div class="fr">-->
+      <!--<p class="fs20 mr20 pt15">+135.0</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="pl10 overHid walletList">-->
+    <!--<div class=" fl mt10 mb10">-->
+      <!--<img src="../images/user.jpg" alt="" class="walletListPic">-->
+    <!--</div>-->
+    <!--<div class="fl pl10 pt10">-->
+      <!--<p>掰了个呆门</p>-->
+      <!--<p class="fs12">2017-09-09 09:30</p>-->
+    <!--</div>-->
+    <!--<div class="fr">-->
+      <!--<p class="fs20 mr20 pt15">+135.0</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="pl10 overHid walletList">-->
+    <!--<div class=" fl mt10 mb10">-->
+      <!--<img src="../images/user.jpg" alt="" class="walletListPic">-->
+    <!--</div>-->
+    <!--<div class="fl pl10 pt10">-->
+      <!--<p>掰了个呆门</p>-->
+      <!--<p class="fs12">2017-09-09 09:30</p>-->
+    <!--</div>-->
+    <!--<div class="fr">-->
+      <!--<p class="fs20 mr20 pt15">+135.0</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="pl10 overHid walletList">-->
+    <!--<div class=" fl mt10 mb10">-->
+      <!--<img src="../images/user.jpg" alt="" class="walletListPic">-->
+    <!--</div>-->
+    <!--<div class="fl pl10 pt10">-->
+      <!--<p>掰了个呆门</p>-->
+      <!--<p class="fs12">2017-09-09 09:30</p>-->
+    <!--</div>-->
+    <!--<div class="fr">-->
+      <!--<p class="fs20 mr20 pt15">+135.0</p>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="pl10 overHid walletList">-->
+    <!--<div class=" fl mt10 mb10">-->
+      <!--<img src="../images/user.jpg" alt="" class="walletListPic">-->
+    <!--</div>-->
+    <!--<div class="fl pl10 pt10">-->
+      <!--<p>掰了个呆门</p>-->
+      <!--<p class="fs12">2017-09-09 09:30</p>-->
+    <!--</div>-->
+    <!--<div class="fr">-->
+      <!--<p class="fs20 mr20 pt15">+135.0</p>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+</body>
+</html>

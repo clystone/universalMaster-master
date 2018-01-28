@@ -1,0 +1,72 @@
+<div class="firstOrderTop pt20 bgColorMain" style="height: 42px;">
+  <div class="fl bgColorMain tac" ui-sref="firstOrder">已接单</div>
+  <div class="fl bgColorMain button-on tac" ui-sref="payOrder">已上门</div>
+  <div class="fl bgColorMain tac" ui-sref="secondOrder">待收款</div>
+  <div class="fl bgColorMain tac" ui-sref="thirdOrder">已完成</div>
+</div>
+<div ng-show="maxSize == 0" class="tac mt40">
+  <i class="weui-icon-info weui-icon_msg"></i>
+  <p class="mt10">暂无此状态订单!!!</p>
+</div>
+<div class="">
+  <div class="pl10 bgcWhite firstOrderBox" ui-sref="money({orderId:order.id})" ng-repeat="order in orders">
+    <div class="pt10">
+      <img ng-src="{{order.user.headImgUrl}}" alt="" class="firstOrderPic fl">
+      <p class="fl pl20 pt10">{{order.user.nickname}}</p>
+      <p class="fr pt10 mr20 colorRed">请填写维修费</p>
+    </div>
+    <div class="clearBoth pt20">
+      <span class="">服务类型</span>
+      <span class="pl20 colorAAA">{{order.skill}}</span>
+    </div>
+    <div class="pt10">
+      <span class="">预约时间</span>
+      <span class="pl20 colorAAA">{{order.bookTime | date:'yyyy-MM-dd'}} {{order.bookTime | date:'HH:ss'}}-{{order.bookTime+3600000 | date:'HH:ss'}}</span>
+    </div>
+    <div class="pt10 por" style="height: 190px;">
+      <span class="firstOrderPriceDes">价格明细</span>
+      <div>
+        <div class="firstOrderPrice">
+          <span class="colorAAA">上门费</span>
+          <span class="colorAAA fr mr20">￥15</span>
+        </div>
+        <div class="firstOrderPrice pt10">
+          <span class="colorAAA">加急费</span>
+          <span class="colorAAA  fr mr20">￥{{order.urgent / 100}}</span>
+        </div>
+        <div class="firstOrderPrice pt10">
+          <span class="colorAAA">服务费</span>
+          <span class="colorAAA fr mr20">待确定</span>
+        </div>
+        <div class="firstOrderPrice pt10">
+          <span class="colorAAA">总计</span>
+          <span class="fr mr20 colorMain">￥{{order.urgent / 100 + 15}}</span>
+        </div>
+      </div>
+      <hr class="clearBoth mt15">
+      <div class="firstOrder-btn">填写维修费</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="weui_tabbar" style="position: fixed;">
+  <a href="javascript:;" class="weui_tabbar_item bgcTran" ui-sref="index">
+    <div class="weui_tabbar_icon">
+      <img src="./images/home.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">抢单大厅</p>
+  </a>
+  <a href="javascript:;" class="weui_tabbar_item weui_bar_item_on bgcTran" ui-sref="firstOrder">
+    <div class="weui_tabbar_icon">
+      <img src="./images/order-active.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">订单</p>
+  </a>
+  <a href="javascript:;" class="weui_tabbar_item bgcTran" ui-sref="user">
+    <div class="weui_tabbar_icon">
+      <img src="./images/user.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">我</p>
+  </a>
+</div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/weui/0.4.3/style/weui.min.css">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <!--<link rel="stylesheet" href="css/index.css">-->
+  <link rel="stylesheet" href="../css/card.css">
+  <title>银行卡信息</title>
+</head>
+<body>
+<div style="z-index:2000;">
+  <div class="cardBox pl10 pt15 pb15 overHid">
+    <span class="fl">姓名</span>
+    <span class="fr mr20 colorAAA">黄大佬</span>
+  </div>
+  <div class="cardBox pl10 pt15 pb15 overHid">
+    <span class="fl">开户银行</span>
+    <span class="fr mr20 colorAAA">中国建行</span>
+  </div>
+  <div class="cardBox pl10 pt15 pb15 overHid">
+    <span class="fl">卡号</span>
+    <span class="fr mr20 colorAAA">6217 **** **** **** 919</span>
+  </div>
+</div>
+<div class="maskWhite"></div>
+</body>
+</html>

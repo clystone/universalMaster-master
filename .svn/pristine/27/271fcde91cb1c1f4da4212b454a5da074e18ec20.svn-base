@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/weui/0.4.3/style/weui.min.css">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/firstOrder.css">
+  <title>订单页2</title>
+</head>
+<body>
+<div class="firstOrderTop pt20 bgColorMain" style="height: 42px;">
+  <div class="fl bgColorMain tac">已接单</div>
+  <div class="fl bgColorMain button-on tac">已服务</div>
+  <div class="fl bgColorMain tac">已完成</div>
+</div>
+<div class="pl10 bgcWhite">
+  <div class="pt10">
+    <img src="../images/user-active.png" alt="" class="firstOrderPic fl">
+    <p class="fl pl20 pt10">掰了个呆门</p>
+    <p class="fr pt10 mr20 colorRed">服务完成</p>
+  </div>
+  <div class="clearBoth pt20">
+    <span class="">服务类型</span>
+    <span class="pl20 colorAAA">空调维修</span>
+  </div>
+  <div class="pt10">
+    <span class="">预约时间</span>
+    <span class="pl20 colorAAA">01-01 09:20</span>
+  </div>
+  <div class="pt10 por" style="height: 190px;">
+    <span class="firstOrderPriceDes">价格明细</span>
+    <div>
+      <div class="firstOrderPrice">
+        <span class="colorAAA">上门费</span>
+        <span class="colorAAA fr mr20">￥5</span>
+      </div>
+      <div class="firstOrderPrice pt10">
+        <span class="colorAAA">加急费</span>
+        <span class="colorAAA  fr mr20">￥30</span>
+      </div>
+      <div class="firstOrderPrice pt10">
+        <span class="colorAAA">产品维修费</span>
+        <span class="colorAAA fr mr20">￥100</span>
+      </div>
+      <div class="firstOrderPrice pt10">
+        <span class="colorAAA">总计</span>
+        <span class="fr mr20 colorMain">￥135</span>
+      </div>
+    </div>
+    <hr class="clearBoth mt15">
+    <p class="fr mr20 fs12 colorAAA pt10">等待用户付款</p>
+  </div>
+</div>
+<div class="weui_tabbar" style="position: fixed;">
+  <a href="javascript:;" class="weui_tabbar_item bgcTran">
+    <div class="weui_tabbar_icon">
+      <img src="../images/home.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">主页</p>
+  </a>
+  <a href="javascript:;" class="weui_tabbar_item weui_bar_item_on bgcTran">
+    <div class="weui_tabbar_icon">
+      <img src="../images/order-active.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">订单</p>
+  </a>
+  <a href="javascript:;" class="weui_tabbar_item bgcTran">
+    <div class="weui_tabbar_icon">
+      <img src="../images/user.png" alt="">
+    </div>
+    <p class="weui_tabbar_label">我</p>
+  </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/weui/0.4.3/style/weui.min.css">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/orderDetail.css">
+  <title>订单详情</title>
+</head>
+<body>
+<div class="pl10 bgcWhite pb10">
+  <div class="detailTop pt20 ">
+    <img src="../images/user.jpg" alt="" class="detailHeadImg fl">
+    <div class="fl pl10">
+      <p class="pt5 fwBold">掰了个呆门</p>
+      <p class="fs12 colorAAA">1分钟前</p>
+    </div>
+    <p class="clearBoth pt5">
+      <img src="../images/location-gray.png" alt="" class="detailLocation">
+    <p class="pl25 pr20">广州省广州市萝岗区联合街道彩频路6号凡岛2号楼2楼F0</p>
+    </p>
+  </div>
+</div>
+<div class="pl10 bgcWhite mt10 pt10 pb10 h60">
+  <div class="fl">
+    <img src="../images/clock.png" alt="" class="clockPic">
+  </div>
+  <div class="pl10 fl">
+    <p class="pt2">加急费</p>
+    <p class="fs12 colorAAA">中国家用服务维修协会规定</p>
+  </div>
+  <div class="fr">
+    <p class="pt7 fs20 pr10">30元</p>
+  </div>
+</div>
+<div class="pl10 mt10 bgcWhite pt10 pb20">
+  <p class="pt10">服务类型 <span class="pl20 colorAAA">空调维修</span></p>
+  <p class="pt10">预约时间 <span class="pl20 colorAAA">2017-01-01 09:20</span><span class="box-tag">急</span></p>
+  <div class="pt10">
+    <span class="detailDes">文字描述</span>
+    <p class="colorAAA" style="width:90%;padding-left:80px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">我家洗衣机坏了！！！我家洗衣机坏了！！！！</p>
+  </div>
+  <div class="pt10">
+    <span class="detailDes">语音描述</span>
+    <p class="talkDiv">
+      <img src="../images/talk.png" alt="" class="talkPic">
+      <span class="detailTalkTime">30's</span>
+    </p>
+  </div>
+  <div class="pt10">
+    <span class="detailDes">相关图片</span>
+    <div class="detailPicBox">
+      <img src="../images/pic_160.png" alt="" class="detailRelPic">
+      <img src="../images/pic_160.png" alt="" class="detailRelPic">
+      <img src="../images/pic_160.png" alt="" class="detailRelPic">
+    </div>
+  </div>
+</div>
+<div>
+  <p class="pt15">
+    <button class="btn detail-btn bgColorMain fixBot">接单</button>
+  </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.walletTopDiv{
+    color: #eee;
+    font-size: 12px;
+    text-align: center;
+    background-color: #6db9ac;
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+.topBoxPic{
+    width: 40px;
+    height: 40px;
+}
+
+.walletGt{
+    margin-top:12px;
+    width: 15px;
+    height: 15px;
+}
+
+.walletList{
+    border-bottom: 1px solid #ccc;
+}
+
+.walletList:last-child{
+    border-bottom: 0;
+    margin-bottom: 20px;
+}
+
+.walletListPic{
+    width: 40px;
+    height: 40px;
+    /*background-color: #6db9ac;*/
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}

@@ -1,0 +1,52 @@
+<div>
+  <div class="cardBox pl10 pt15 pb15 overHid">
+    <span class="fl">姓名</span>
+    <span class="fr mr20 colorAAA">{{msg.aName}}</span>
+  </div>
+  <div class="cardBox pl10 pt15 pb15 overHid">
+    <span class="fl">账号</span>
+    <span class="fr mr20 colorAAA">{{msg.aliPay}}</span>
+  </div>
+</div>
+
+<div class="picMask" ng-show="showDIv">
+  <div class="bankDiv">
+    <div class="mt20">
+      <div class="por ">
+        <span class="poa l10 lh34">姓名</span>
+        <input type="text" class="form-control ml80 w200" ng-model="nameInput">
+      </div>
+    </div>
+    <div class="mt20">
+      <div class="por ">
+        <span class="poa l10 lh34">账号</span>
+        <input type="text" class="form-control ml80 w200" ng-model="aliInput">
+      </div>
+    </div>
+    <div class="mt20">
+      <div class="por ">
+        <span class="poa l10 lh34" style="color:cornflowerblue" ng-click="hideDiv()">&lt;&lt;返回</span>
+      </div>
+    </div>
+    <div class="mt20">
+      <button class="bankBtn" ng-click="submitAlipay()">提交资料</button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button class=" bgColorMain colorWhite bottomBtn"  ng-click="showNew()" ng-show="!aliPay">新增支付宝信息</button>
+  <button class=" bgColorMain colorWhite bottomBtn"  ng-click="showNew()" ng-show="aliPay">修改支付宝信息</button>
+</div>
+
+<div class="weui_dialog_alert" style="display: none;">
+  <div class="weui_mask"></div>
+  <div class="weui_dialog">
+    <div class="weui_dialog_hd"> <strong class="weui_dialog_title">警告</strong>
+    </div>
+    <div class="weui_dialog_bd">弹窗内容，告知当前页面信息等</div>
+    <div class="weui_dialog_ft">
+      <a href="javascript:;" class="weui_btn_dialog colorWhite">确定</a>
+    </div>
+  </div>
+</div>

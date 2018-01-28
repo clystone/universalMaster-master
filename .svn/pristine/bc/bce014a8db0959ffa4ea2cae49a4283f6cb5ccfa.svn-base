@@ -1,0 +1,11 @@
+<div class="bgcWhite">
+    <p class="pl10 pr10 pt10 pb10 colorAAA">提示：开启推送之后，系统将会把下单信息推送到全能师傅的公众号上，便于您抢单；关闭推送之后，您将不再接收到系统的推送信息</p>
+</div>
+<!--<div class="weui-cells weui-cells_form">-->
+    <div class="weui-cell weui-cell_switch bgcWhite mt10">
+        <div class="weui-cell__bd">是否开启推送</div>
+        <div class="weui-cell__ft">
+            <input class="weui-switch" id="pushInput" type="checkbox"/>
+        </div>
+    </div>
+<!--</div>-->

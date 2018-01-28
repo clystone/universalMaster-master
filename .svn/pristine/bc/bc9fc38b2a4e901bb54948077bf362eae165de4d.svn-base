@@ -1,0 +1,13 @@
+<p class="fs20 tac pt20 pb20 bgColorMain colorWhite">材料费提现列表</p>
+<table class="table">
+<tr>
+<th class="tac">订单编号</th>
+<th class="tac">提现金额</th>
+<th class="tac">提现时间</th>
+</tr>
+<tr ng-repeat="a in orderProducts" class="tac">
+<td>{{a.order.orderNo}}</td>
+<td>{{a.product / 100}}</td>
+<td>{{a.createTime | date : 'yyyy-MM-dd '}}</td>
+</tr>
+</table>

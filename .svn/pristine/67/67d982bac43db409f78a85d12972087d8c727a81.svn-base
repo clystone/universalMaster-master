@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/weui/0.4.3/style/weui.min.css">
+  <!--<link href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css" rel="stylesheet">-->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/submitData.css">
+  <title>提交资料</title>
+</head>
+<body style="background-color:#eee;" ontouchstart>
+<div class="weui_cells weui_cells_form">
+  <div class="weui_cell" style="padding-left:0;">
+    <div class="weui_cell_bd weui_cell_primary">
+      <div class="weui_uploader">
+        <div class="weui_uploader_hd weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">身份证正面上传</div>
+          <div class="weui_cell_ft js_counter">0/1</div>
+        </div>
+        <div class="weui_uploader_bd">
+          <ul class="weui_uploader_files">
+            <!-- 预览图插入到这 --> </ul>
+          <div class="weui_uploader_input_wrp">
+            <form name="form0" id="form0" enctype="multipart/form-data" method="post">
+              <input class="weui_uploader_input js_file" type="file" name="files">
+            </form>
+          </div>
+        </div>
+        <p class="dataBottomDes">*请上传身份证正面</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="weui_cells weui_cells_form">
+  <div class="weui_cell" style="padding-left:0;">
+    <div class="weui_cell_bd weui_cell_primary">
+      <div class="weui_uploader">
+        <div class="weui_uploader_hd weui_cell">
+          <div class="weui_cell_bd weui_cell_primary">身份证反面上传</div>
+          <div class="weui_cell_ft js_counter1">0/1</div>
+        </div>
+        <div class="weui_uploader_bd">
+          <ul class="weui_uploader_files1">
+            <!-- 预览图插入到这 --> </ul>
+          <div class="weui_uploader_input_wrp">
+            <form name="form1" id="form1" enctype="multipart/form-data" method="post">
+              <input class="weui_uploader_input js_file1" type="file" name="files">
+            </form>
+          </div>
+        </div>
+        <p class="dataBottomDes">*请上传身份证反面</p>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="javascript:;" class="weui_btn weui_btn_primary subBtn">提交资料</a>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script>
+  const url = 'https://shifu.jack-kwan.com';
+  var myForm = new FormData($("#form0")[0]);
+  var myForm1 = new FormData($("#form1")[0]);
+  $.ajax({
+    type: "POST",
+    url: url + "/api/file/ulmasteridcard/0",
+    data: myForm,
+    headers: {
+      TOKEN: 'RARt2PbUOFW5jRD8'
+    },
+    // async:false,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (res) {
+      console.log(res);
+      // alert("上传成功");
+      $.ajax({
+        type: "POST",
+        url: url + "/api/file/ulmasteridcard/1",
+        data: myForm1,
+        headers: {
+          TOKEN: 'RARt2PbUOFW5jRD8'
+        },
+        // async:false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (res) {
+          console.log(res);
+          // alert("上传成功");
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          // alert("上传失败");
+        }
+      });
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      // alert("上传失败");
+    }
+  });
+</script>
+</html>

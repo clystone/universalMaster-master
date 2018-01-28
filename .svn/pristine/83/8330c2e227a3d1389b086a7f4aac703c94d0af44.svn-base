@@ -1,0 +1,100 @@
+<div class="dataTop">
+  <div class="pl10">
+    <p class="dataName">
+      <span>真实姓名</span>
+      <input type="text" style="border: 0;background-color:transparent;" placeholder="请输入" class="pl20"
+             ng-model="realName">
+    <hr>
+    </p>
+    <p class="dataName">
+      <span>身份证号</span>
+      <input type="text" style="border: 0;background-color:transparent;" placeholder="请输入" class="pl20"
+             ng-model="idCard">
+    <hr>
+    </p>
+    <div class="pb10" style="border-bottom: 1px solid #ccc">
+      <p class="category">服务类别（必填）</p>
+      <p>家电维修 <i class="weui_icon_success_no_circle fr pr10"></i></p>
+    </div>
+    <div class="pb10 pt10">
+      <p class="category">选择服务城市（必选）</p>
+      <div style="overflow: hidden" >
+        <div class="w33" ng-repeat="i in city">
+          <span ng-click="showCity(i,$event)"  ng-class="{citySelect:i.city == select}">{{i.city}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="dataBottom">
+  <div class="pl10">
+    <div class="weui_cells weui_cells_form">
+      <div class="weui_cell" style="padding-left:0;">
+        <div class="weui_cell_bd weui_cell_primary">
+          <div class="weui_uploader">
+            <div class="weui_uploader_hd weui_cell">
+              <div class="weui_cell_bd weui_cell_primary">身份证正面上传</div>
+              <div class="weui_cell_ft js_counter">0/1</div>
+            </div>
+            <div class="weui_uploader_bd">
+              <ul class="weui_uploader_files">
+                <!-- 预览图插入到这 --> </ul>
+              <div class="weui_uploader_input_wrp">
+                <form name="form0" id="form0" enctype="multipart/form-data" method="post">
+                  <!--<input class="weui_uploader_input js_file int0" type="file" name="file"-->
+                         <!--accept="image/jpg,image/jpeg,image/png,image/gif">-->
+                  <input class="weui_uploader_input js_file int0" type="file" name="file">
+                </form>
+              </div>
+            </div>
+            <p class="dataBottomDes">*请上传身份证正面</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui_cells weui_cells_form">
+      <div class="weui_cell" style="padding-left:0;">
+        <div class="weui_cell_bd weui_cell_primary">
+          <div class="weui_uploader">
+            <div class="weui_uploader_hd weui_cell">
+              <div class="weui_cell_bd weui_cell_primary">身份证反面上传</div>
+              <div class="weui_cell_ft js_counter1">0/1</div>
+            </div>
+            <div class="weui_uploader_bd">
+              <ul class="weui_uploader_files1">
+                <!-- 预览图插入到这 --> </ul>
+              <div class="weui_uploader_input_wrp">
+                <form name="form1" id="form1" enctype="multipart/form-data" method="post">
+                  <input class="weui_uploader_input js_file1 int1" type="file" name="file">
+                </form>
+              </div>
+            </div>
+            <p class="dataBottomDes">*请上传身份证反面</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<button class="btn ntm-primary" ng-click="subPic()">测试上传照片</button>-->
+<!--<button class="btn ntm-primary" ng-click="subCity()">测试上传城市</button>-->
+
+<div class="weui_dialog_alert" style="display: none;">
+  <div class="weui_mask"></div>
+  <div class="weui_dialog">
+    <div class="weui_dialog_hd"><strong class="weui_dialog_title">警告</strong>
+    </div>
+    <div class="weui_dialog_bd">弹窗内容，告知当前页面信息等</div>
+    <div class="weui_dialog_ft">
+      <a href="javascript:;" class="weui_btn_dialog colorWhite">确定</a>
+    </div>
+  </div>
+</div>
+<!--<a href="javascript:;" class="weui_btn weui_btn_primary subBtn" ui-sref="index">测试跳转提交资料</a>-->
+<a href="javascript:;" class="weui_btn weui_btn_primary subBtn" ng-click="submitData()">提交资料</a>
+
+<div class="picMask" ng-show="uploading">
+  <div class="tac" style="width: 120px; position: absolute;top: 50%; left: 50%; margin-left: -60px; background-color:#111;color: #fff; border-radius: 5px">
+    上传中...
+  </div>
+</div>

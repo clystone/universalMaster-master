@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .picMask{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,.4);
+    }
+    .bigPic{
+      position: absolute;
+      top: 50%;
+      margin-top:-400px;
+      width: 100%;
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+<div class="picMask">
+  <img src="../images/user.jpg" alt="" class="bigPic">
+</div>
+</body>
+</html>

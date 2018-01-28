@@ -1,0 +1,40 @@
+.detailHeadImg{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.detailLocation{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+.receivePhone{
+    width: 40px;
+    height: 40px;
+}
+
+.moneyPic{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+}
+
+.moneyPrefix{
+    position: absolute;
+}
+
+.moneyInput{
+    margin-top: 10px;
+    height: 50px;
+    font-size: 36px;
+    margin-left:40px;
+    width: 150px;
+    border:0
+}

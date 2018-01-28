@@ -1,0 +1,9 @@
+.serviceDataTop{
+    border-bottom:1px solid #cccccc;
+    padding-bottom: 10px;
+}
+
+.serviceDataPic{
+    width: 70px;
+    height: 70px;
+}
